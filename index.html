@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akbar Bhai Rishte Wale | Trusted Muslim Matrimonial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #0D4A2F;
+            --emerald-mid: #155A38;
+            --emerald-light: #1A6B43;
+            --gold: #C9A227;
+            --gold-light: #E2BB4A;
+            --gold-pale: #F5E9C0;
+            --cream: #FDFAF3;
+            --white: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --border: rgba(201,162,39,0.25);
+            --shadow-sm: 0 2px 12px rgba(13,74,47,0.08);
+            --shadow-md: 0 8px 32px rgba(13,74,47,0.12);
+            --shadow-lg: 0 20px 60px rgba(13,74,47,0.18);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── Geometric Background Pattern ─── */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,162,39,0.03) 40px, rgba(201,162,39,0.03) 41px),
+                repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(13,74,47,0.02) 40px, rgba(13,74,47,0.02) 41px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(253,250,243,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 5%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+            letter-spacing: 0.01em;
+        }
+        .logo-sub {
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.25rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--emerald);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover,
+        .nav-links a.active-link {
+            background: var(--emerald);
+            color: var(--white);
+            border-color: var(--emerald);
+        }
+
+        /* Burger */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+        }
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--emerald);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            padding: 1rem;
+            z-index: 999;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--emerald);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: block;
+            text-align: center;
+        }
+
+        /* ─── PAGE SECTIONS ─── */
+        section {
+            display: none;
+            min-height: calc(100vh - 70px);
+            position: relative;
+            z-index: 1;
+        }
+        section.active { display: block; }
+
+        /* ─── HOME ─── */
+        #home { background: none; }
+
+        .hero {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 60%, #1f7a4f 100%);
+            padding: 80px 5% 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative arches */
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0; right: 0;
+            height: 60px;
+            background: var(--cream);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .hero-ornament {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            letter-spacing: 0.5em;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: var(--white);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span { color: var(--gold-light); }
+
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--emerald);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201,162,39,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Trust badges */
+        .trust-strip {
+            background: var(--gold-pale);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 5%;
+            display: flex;
+            justify-content: center;
+            gap: clamp(1.5rem, 4vw, 4rem);
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--emerald);
+        }
+        .trust-item .icon { font-size: 1.1rem; }
+
+        /* How it works */
+        .section-body { padding: 70px 5%; }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--emerald);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 560px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-num {
+            width: 48px; height: 48px;
+            background: var(--emerald);
+            color: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .step-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--emerald);
+            margin-bottom: 0.6rem;
+        }
+        .step-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* Why Trust Section */
+        .why-section {
+            background: var(--emerald);
+            padding: 70px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-section::before {
+            content: "❝";
+            position: absolute;
+            top: -20px;
+            right: 5%;
+            font-size: 15rem;
+            color: rgba(201,162,39,0.07);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .why-section .section-title { color: var(--white); }
+        .why-section .section-desc { color: rgba(255,255,255,0.7); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(201,162,39,0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: 0.3s;
+        }
+        .why-card:hover { background: rgba(255,255,255,0.1); }
+        .why-icon {
+            width: 44px; height: 44px;
+            background: rgba(201,162,39,0.15);
+            border: 1px solid rgba(201,162,39,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .why-card h3 {
+            font-size: 1rem;
+            color: var(--gold-light);
+            margin-bottom: 0.3rem;
+        }
+        .why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+        /* ─── ABOUT ─── */
+        #about { padding: 0; }
+
+        .about-hero {
+            background: linear-gradient(to right, var(--emerald) 50%, var(--emerald-light) 100%);
+            padding: 60px 5%;
+            color: white;
+        }
+
+        .about-hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            color: rgba(255,255,255,0.8);
+            max-width: 620px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .about-body { padding: 60px 5%; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--emerald);
+            margin-bottom: 1rem;
+        }
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-box {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--emerald);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .stat-num span { color: var(--gold); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .values-block {
+            background: var(--gold-pale);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        .values-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--emerald);
+            margin-bottom: 1rem;
+        }
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(201,162,39,0.2);
+        }
+        .value-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .value-dot {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        .value-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+        .value-item strong { color: var(--emerald); }
+
+        /* ─── ENQUIRY FORM ─── */
+        #enquiry { padding: 0; }
+
+        .form-page-header {
+            background: var(--emerald);
+            padding: 50px 5% 60px;
+            text-align: center;
+            position: relative;
+        }
+        .form-page-header::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0; right: 0;
+            height: 50px;
+            background: var(--cream);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .form-page-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .form-page-header p { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+
+        .form-wrapper { padding: 30px 5% 80px; }
+
+        .form-container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .form-header-bar {
+            background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .form-header-bar h3 {
+            color: var(--gold-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        .form-header-bar .header-icon { font-size: 1.3rem; }
+
+        .form-body { padding: 2.5rem 2rem; }
+
+        .form-section-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .form-section-title:first-child { margin-top: 0; }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group.full { grid-column: span 2; }
+
+        label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--emerald);
+            letter-spacing: 0.02em;
+        }
+
+        label .req { color: var(--gold); margin-left: 2px; }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: var(--radius-sm);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            background: #fafafa;
+            transition: all 0.25s;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--emerald);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(13,74,47,0.08);
+        }
+        input::placeholder, textarea::placeholder { color: #bbb; }
+        textarea { resize: vertical; min-height: 90px; }
+        select { cursor: pointer; }
+
+        /* ─── IMAGE UPLOAD ─── */
+        .image-upload-zone {
+            border: 2px dashed rgba(201,162,39,0.4);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(253,250,243,0.6);
+            position: relative;
+        }
+        .image-upload-zone:hover {
+            border-color: var(--gold);
+            background: var(--gold-pale);
+        }
+        .image-upload-zone.has-image {
+            border-color: var(--emerald);
+            background: rgba(13,74,47,0.04);
+        }
+        .image-upload-zone input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+        .upload-content { pointer-events: none; }
+        .upload-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+        .upload-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+        .upload-hint { font-size: 0.75rem; color: #bbb; margin-top: 3px; }
+
+        .preview-container {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+        .preview-container.visible { display: flex; }
+        #preview {
+            width: 72px; height: 72px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+        .preview-info { text-align: left; }
+        .preview-name { font-size: 0.85rem; font-weight: 600; color: var(--emerald); }
+        .preview-change { font-size: 0.75rem; color: var(--gold); cursor: pointer; text-decoration: underline; }
+        .preview-change:hover { color: var(--emerald); }
+
+        /* Submit */
+        .form-submit-area {
+            padding: 1.5rem 2rem 2rem;
+            background: #fafaf8;
+            border-top: 1px solid #f0ede4;
+        }
+
+        .note-box {
+            background: var(--gold-pale);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 14px;
+            font-size: 0.8rem;
+            color: #6b5500;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 20px rgba(13,74,47,0.25);
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(13,74,47,0.35);
+        }
+        .submit-btn .wa-icon { font-size: 1.2rem; }
+        .submit-btn .arrow { transition: transform 0.2s; }
+        .submit-btn:hover .arrow { transform: translateX(4px); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--emerald);
+            color: rgba(255,255,255,0.75);
+            padding: 3rem 5% 2rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(201,162,39,0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .logo-main { color: var(--white); }
+        .footer-brand .logo-sub { color: var(--gold); }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-top: 0.8rem;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li {
+            font-size: 0.85rem;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.65);
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: var(--gold-light); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p { font-size: 0.8rem; }
+        .footer-badge {
+            background: rgba(201,162,39,0.15);
+            border: 1px solid rgba(201,162,39,0.3);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+        }
+
+        /* ─── WHATSAPP FLOAT ─── */
+        .wa-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 58px;
+            height: 58px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 1001;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+        }
+        .wa-float-tooltip {
+            position: absolute;
+            right: 68px;
+            background: #1a1a1a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+        .wa-float-tooltip::after {
+            content: "";
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 4px solid transparent;
+            border-left-color: #1a1a1a;
+        }
+        .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+        /* ─── SUCCESS TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--emerald);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 9999;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr 1fr 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .footer-inner .footer-brand { grid-column: span 2; }
+        }
+
+        @media (max-width: 640px) {
+            nav .nav-links { display: none; }
+            .burger { display: flex; }
+            .hero { padding: 50px 5% 80px; }
+            .section-body { padding: 50px 5%; }
+            .form-grid-2 { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+            .form-body { padding: 1.5rem 1.2rem; }
+            .form-submit-area { padding: 1.2rem; }
+            .stats-row { grid-template-columns: 1fr; }
+            .trust-strip { gap: 1rem; }
+            .hero-btns { flex-direction: column; align-items: center; }
+            .footer-inner { grid-template-columns: 1fr; }
+            .footer-inner .footer-brand { grid-column: span 1; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* Page transition animation */
+        section.active {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <span class="logo-main">Akbar Bhai Rishte Wale</span>
+            <span class="logo-sub">Trusted Matrimonial • Est. 1984</span>
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="showPage('home')" id="link-home" class="active-link">Home</a></li>
+            <li><a onclick="showPage('about')" id="link-about">About</a></li>
+            <li><a onclick="showPage('enquiry')" id="link-enquiry">Register</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a onclick="showPage('home'); toggleMenu()">🏠 Home</a>
+        <a onclick="showPage('about'); toggleMenu()">📖 About Us</a>
+        <a onclick="showPage('enquiry'); toggleMenu()">📝 Register Your Profile</a>
+    </div>
+
+    <!-- ─── HOME ─── -->
+    <section id="home" class="active">
+        <div class="hero">
+            <div class="hero-ornament">✦ ✦ ✦</div>
+            <h1>Find Your <span>Halal</span> Life Partner<br>With Trust & Respect</h1>
+            <p>Over 40 years of connecting Muslim families. Thousands of happy Nikahs. Your Rishta journey starts here.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="showPage('enquiry')">
+                    📝 Submit Your Profile
+                </button>
+                <button class="btn-outline" onclick="showPage('about')">
+                    Learn More →
+                </button>
+            </div>
+        </div>
+
+        <div class="trust-strip">
+            <div class="trust-item"><span class="icon">✅</span> 40+ Years Experience</div>
+            <div class="trust-item"><span class="icon">💍</span> 5000+ Successful Nikahs</div>
+            <div class="trust-item"><span class="icon">🔒</span> 100% Privacy Assured</div>
+            <div class="trust-item"><span class="icon">☪️</span> Sharia Compliant</div>
+        </div>
+
+        <div class="section-body">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title">Simple. Trusted. Halal.</h2>
+            <p class="section-desc">Our process is designed with Islamic values at its core — family involvement, privacy, and sincerity.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Fill Your Details</h3>
+                    <p>Complete our comprehensive profile form with your personal, family, and religious background information securely.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>We Review & Match</h3>
+                    <p>Akbar Bhai personally reviews every profile and carefully identifies compatible matches based on deen, background, and expectations.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Families Connect</h3>
+                    <p>Families are introduced under our guidance. Meetings happen with full Islamic etiquette and parental involvement to complete the Sunnah.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-section">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">Trusted by Thousands of Families</h2>
+            <p class="section-desc">We are not just a matchmaking service — we are a partner in one of the most important decisions of your life.</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🕌</div>
+                    <div>
+                        <h3>Islamic Foundation</h3>
+                        <p>Every step of our process follows Quranic guidance and the teachings of the Prophet ﷺ. Nikah is made easy here.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">👨‍👩‍👧‍👦</div>
+                    <div>
+                        <h3>Family-Centered Approach</h3>
+                        <p>We believe marriage unites families, not just individuals. All meetings involve wali/guardian consent and participation.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <div>
+                        <h3>Complete Privacy</h3>
+                        <p>Your personal information and photo are never shared without explicit consent. We treat every profile with utmost confidentiality.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📍</div>
+                    <div>
+                        <h3>Local & Trusted</h3>
+                        <p>Based in Nagchowk, Umarkhed — Akbar Bhai is a trusted name known personally across the community for decades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section id="about">
+        <div class="about-hero">
+            <h2>About Akbar Bhai Rishte Wale</h2>
+            <p>For over four decades, we have been the most trusted name in Muslim matrimonial services in the region — built on sincerity, Islamic values, and genuine care for every family we serve.</p>
+        </div>
+
+        <div class="about-body">
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-num">40<span>+</span></div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">5K<span>+</span></div>
+                    <div class="stat-label">Successful Nikahs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">100<span>%</span></div>
+                    <div class="stat-label">Privacy Guaranteed</div>
+                </div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Akbar Bhai began this mission in 1984 with a simple belief: every Muslim deserves to find a life partner who shares their deen, values, and vision for a beautiful family life.</p>
+                    <p>What started as a humble local service in Umarkhed has grown into one of the most respected matrimonial offices in the region — trusted by thousands of families across Maharashtra and beyond.</p>
+                    <p>Every rishta we facilitate is treated with personal attention. We don't just match profiles — we understand families, listen to concerns, and guide with wisdom and Islamic ethics at every step.</p>
+                    <h3 style="margin-top: 1.5rem;">Our Commitment</h3>
+                    <p>We personally meet or speak with every family. There are no hidden fees, no false promises — just honest, halal matchmaking done the right way.</p>
+                </div>
+
+                <div>
+                    <div class="values-block">
+                        <h3>Our Islamic Values</h3>
+                        <div class="value-item">
+                            <div class="value-dot"></div>
+                            <p><strong>Halal Process Only</strong><br>All interactions follow Islamic etiquette. No free mixing. Wali involvement is mandatory in all communications.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-dot"></div>
+                            <p><strong>Molvi Consultation</strong><br>We offer proper Islamic guidance on compatibility and marriage prerequisites, keeping Deen as the primary criterion.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-dot"></div>
+                            <p><strong>No Dowry Pressure</strong><strong></strong><br>We firmly stand against dowry practices and encourage simple, blessed Nikahs as per Sunnah.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-dot"></div>
+                            <p><strong>Confidentiality Always</strong><br>Profile details and photos are shared only with mutual consent. Your trust is our greatest responsibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ENQUIRY ─── -->
+    <section id="enquiry">
+        <div class="form-page-header">
+            <h2>Register Your Profile</h2>
+            <p>Fill in the details below — we'll contact you with compatible matches.</p>
+        </div>
+
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="form-header-bar">
+                    <span class="header-icon">📋</span>
+                    <h3>Rishta Enquiry Form — Serious Profiles Only</h3>
+                </div>
+
+                <form id="rishtaForm" novalidate>
+                    <div class="form-body">
+
+                        <!-- PERSONAL -->
+                        <div class="form-section-title">👤 Personal Information</div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Full Name <span class="req">*</span></label>
+                                <input type="text" id="name" required placeholder="e.g. Mohammed Rashid Khan">
+                            </div>
+                            <div class="form-group">
+                                <label>Age <span class="req">*</span></label>
+                                <input type="number" id="age" required min="18" max="70" placeholder="e.g. 26">
+                            </div>
+                            <div class="form-group">
+                                <label>Gender <span class="req">*</span></label>
+                                <select id="gender" required>
+                                    <option value="">— Select —</option>
+                                    <option value="Male">Male (Dulha)</option>
+                                    <option value="Female">Female (Dulhan)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Height</label>
+                                <input type="text" id="height" placeholder="e.g. 5 feet 6 inches">
+                            </div>
+                            <div class="form-group">
+                                <label>Marital Status</label>
+                                <select id="maritalStatus">
+                                    <option value="Never Married">Never Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Complexion</label>
+                                <select id="complexion">
+                                    <option value="">— Optional —</option>
+                                    <option value="Fair">Fair (Gora)</option>
+                                    <option value="Wheatish">Wheatish (Sanwla)</option>
+                                    <option value="Dark">Dark</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- FAMILY -->
+                        <div class="form-section-title">👨‍👩‍👧 Family Details</div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Father's Name</label>
+                                <input type="text" id="fatherName" placeholder="Father's full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Surname / Caste</label>
+                                <input type="text" id="surname" placeholder="e.g. Shaikh, Pathan, Syed...">
+                            </div>
+                            <div class="form-group full">
+                                <label>Address / City</label>
+                                <input type="text" id="address" placeholder="e.g. Umarkhed, Nanded, Maharashtra">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Number <span class="req">*</span></label>
+                                <input type="tel" id="phone" required placeholder="e.g. 9960729091">
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp Number</label>
+                                <input type="tel" id="whatsapp" placeholder="If different from above">
+                            </div>
+                        </div>
+
+                        <!-- EDUCATION & PROFESSION -->
+                        <div class="form-section-title">🎓 Education & Profession</div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Education</label>
+                                <input type="text" id="education" placeholder="e.g. B.Com, Madrasa Alim...">
+                            </div>
+                            <div class="form-group">
+                                <label>Occupation</label>
+                                <input type="text" id="occupation" placeholder="e.g. Business, Job, Student...">
+                            </div>
+                            <div class="form-group">
+                                <label>Monthly Income</label>
+                                <select id="income">
+                                    <option value="">— Optional —</option>
+                                    <option value="Below 15k">Below ₹15,000</option>
+                                    <option value="15k-30k">₹15,000 – ₹30,000</option>
+                                    <option value="30k-60k">₹30,000 – ₹60,000</option>
+                                    <option value="60k+">₹60,000+</option>
+                                    <option value="Business">Business Owner</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- DEEN -->
+                        <div class="form-section-title">☪️ Religious Background</div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Religious Practice</label>
+                                <select id="religiousLevel">
+                                    <option value="Practicing">Practicing Muslim</option>
+                                    <option value="Moderate">Moderate</option>
+                                    <option value="Basic">Basic</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Salah / Namaz</label>
+                                <input type="text" id="salah" placeholder="e.g. 5 times daily, learning...">
+                            </div>
+                            <div class="form-group">
+                                <label>Sect / Maslak</label>
+                                <select id="sect">
+                                    <option value="">— Optional —</option>
+                                    <option value="Sunni Hanafi">Sunni Hanafi</option>
+                                    <option value="Sunni Shafi">Sunni Shafi</option>
+                                    <option value="Deobandi">Deobandi</option>
+                                    <option value="Barelvi">Barelvi</option>
+                                    <option value="Ahle Hadith">Ahle Hadith</option>
+                                    <option value="Shia">Shia</option>
+                                    <option value="No Preference">No Preference</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Hijab / Parda</label>
+                                <select id="hijab">
+                                    <option value="">— Optional —</option>
+                                    <option value="Full Parda">Full Parda (Niqab)</option>
+                                    <option value="Hijab">Hijab (Scarf)</option>
+                                    <option value="Modest Dress">Modest Dress</option>
+                                    <option value="N/A">N/A (Male)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- PHOTO -->
+                        <div class="form-section-title">📷 Profile Photo</div>
+                        <div class="image-upload-zone" id="uploadZone">
+                            <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+                            <div class="upload-content" id="uploadContent">
+                                <div class="upload-icon">🖼️</div>
+                                <div class="upload-text">Click or tap to upload a photo</div>
+                                <div class="upload-hint">JPG, PNG • Max 5MB • Photo shared only with mutual consent</div>
+                            </div>
+                            <div class="preview-container" id="previewContainer">
+                                <img id="preview" src="" alt="Profile preview">
+                                <div class="preview-info">
+                                    <div class="preview-name" id="previewName">Photo uploaded ✓</div>
+                                    <div class="preview-change" onclick="changePhoto(event)">Change photo</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXPECTATIONS -->
+                        <div class="form-section-title" style="margin-top: 1.8rem;">🤝 Partner Expectations</div>
+                        <div class="form-group">
+                            <label>What are you looking for in a life partner?</label>
+                            <textarea id="expectations" rows="4" placeholder="Describe age range, deen level, education, location preferences, or any other important requirements..."></textarea>
+                        </div>
+
+                    </div><!-- /form-body -->
+
+                    <div class="form-submit-area">
+                        <div class="note-box">
+                            🔒 Your information is completely secure (सुरक्षित). We share details only with your permission.
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span class="wa-icon">💬</span>
+                            Send Profile via WhatsApp
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-main">Akbar Bhai Rishte Wale</span>
+                    <span class="logo-sub">Trusted Matrimonial • Est. 1984</span>
+                </div>
+                <p>A trusted name in Muslim matrimonial services for over 40 years. Helping families find halal life partners with sincerity and Islamic values.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a onclick="showPage('home')">🏠 Home</a></li>
+                    <li><a onclick="showPage('about')">📖 About Us</a></li>
+                    <li><a onclick="showPage('enquiry')">📝 Register Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>📞 <a href="tel:+919960729091">+91 99607 29091</a></li>
+                    <li>💬 <a href="https://wa.me/919960729092" target="_blank">WhatsApp: 99607 29092</a></li>
+                    <li>📍 Nagchowk, Umarkhed</li>
+                    <li>🕐 Mon–Sat: 9am – 8pm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Akbar Bhai Rishte Wale. All Rights Reserved.</p>
+            <div class="footer-badge">☪️ 100% Sharia Compliant</div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919960729092" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+        <div class="wa-float-tooltip">Chat on WhatsApp</div>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.012 0-3.991-.512-5.741-1.488l-6.243 1.712zm6.103-2.158l.348.206c1.46.863 3.158 1.319 4.903 1.319 5.393 0 9.779-4.386 9.779-9.779 0-2.612-1.017-5.067-2.862-6.913s-4.301-2.863-6.914-2.863c-5.392 0-9.777 4.387-9.777 9.778 0 1.836.51 3.618 1.475 5.163l.226.362-.979 3.57 3.655-.944zm9.953-6.858c-.247-.124-1.462-.722-1.688-.805-.227-.083-.392-.124-.556.124-.165.248-.639.805-.783.969-.144.165-.289.185-.536.062-.247-.124-1.043-.385-1.987-1.227-.735-.656-1.231-1.465-1.375-1.712-.144-.247-.015-.381.109-.504.111-.111.247-.289.371-.434.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.556-1.341-.762-1.837-.2-.482-.403-.416-.556-.424-.144-.007-.309-.009-.474-.009-.165 0-.433.062-.659.309-.227.248-.865.846-.865 2.064 0 1.218.886 2.394 1.01 2.56.124.165 1.743 2.661 4.221 3.731.59.255 1.05.407 1.408.521.593.188 1.13.161 1.556.097.475-.072 1.462-.598 1.668-1.176.206-.578.206-1.073.144-1.176-.061-.103-.226-.165-.473-.29z"/>
+        </svg>
+    </a>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">✅ Redirecting to WhatsApp...</div>
+
+    <script>
+        // ─── Navigation ───
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
+            document.getElementById(pageId).classList.add('active');
+            const link = document.getElementById('link-' + pageId);
+            if (link) link.classList.add('active-link');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ─── Mobile Menu ───
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger');
+            if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
+
+        // ─── Image Upload ───
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Photo is too large. Please choose a photo under 5MB.');
+                event.target.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('preview');
+                const previewContainer = document.getElementById('previewContainer');
+                const uploadContent = document.getElementById('uploadContent');
+                const uploadZone = document.getElementById('uploadZone');
+                const previewName = document.getElementById('previewName');
+
+                preview.src = e.target.result;
+                previewContainer.classList.add('visible');
+                uploadContent.style.display = 'none';
+                uploadZone.classList.add('has-image');
+                previewName.textContent = '✓ ' + file.name.substring(0, 30);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function changePhoto(e) {
+            e.stopPropagation();
+            document.getElementById('imageInput').click();
+        }
+
+        // ─── Toast ───
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // ─── Form Submit ───
+        document.getElementById('rishtaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const gender = document.getElementById('gender').value;
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!name || !age || !gender || !phone) {
+                alert('Please fill in all required fields (marked with *)');
+                return;
+            }
+            if (parseInt(age) < 18) {
+                alert('Minimum age is 18 years.');
+                return;
+            }
+
+            const height = document.getElementById('height').value;
+            const edu = document.getElementById('education').value;
+            const job = document.getElementById('occupation').value;
+            const income = document.getElementById('income').value;
+            const fName = document.getElementById('fatherName').value;
+            const surname = document.getElementById('surname').value;
+            const addr = document.getElementById('address').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const religion = document.getElementById('religiousLevel').value;
+            const status = document.getElementById('maritalStatus').value;
+            const salah = document.getElementById('salah').value;
+            const sect = document.getElementById('sect').value;
+            const hijab = document.getElementById('hijab').value;
+            const complexion = document.getElementById('complexion').value;
+            const expect = document.getElementById('expectations').value;
+            const hasImage = document.getElementById('imageInput').files.length > 0;
+
+            let msg = `*🌙 New Rishta Enquiry*\n`;
+            msg += `_Akbar Bhai Rishte Wale_\n`;
+            msg += `━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            msg += `*👤 Personal Details*\n`;
+            msg += `• Name: ${name}\n`;
+            msg += `• Age: ${age} years | ${gender}\n`;
+            if (height) msg += `• Height: ${height}\n`;
+            if (complexion) msg += `• Complexion: ${complexion}\n`;
+            msg += `• Marital Status: ${status}\n\n`;
+
+            msg += `*👨‍👩‍👧 Family Details*\n`;
+            if (fName) msg += `• Father's Name: ${fName}\n`;
+            if (surname) msg += `• Surname/Caste: ${surname}\n`;
+            if (addr) msg += `• Location: ${addr}\n`;
+            msg += `• Contact: ${phone}\n`;
+            if (whatsapp) msg += `• WhatsApp: ${whatsapp}\n\n`;
+
+            msg += `*🎓 Education & Profession*\n`;
+            if (edu) msg += `• Education: ${edu}\n`;
+            if (job) msg += `• Occupation: ${job}\n`;
+            if (income) msg += `• Monthly Income: ${income}\n\n`;
+
+            msg += `*☪️ Religious Background*\n`;
+            msg += `• Practice Level: ${religion}\n`;
+            if (salah) msg += `• Namaz/Salah: ${salah}\n`;
+            if (sect) msg += `• Sect/Maslak: ${sect}\n`;
+            if (hijab) msg += `• Hijab/Parda: ${hijab}\n\n`;
+
+            if (expect) {
+                msg += `*🤝 Partner Expectations*\n`;
+                msg += `${expect}\n\n`;
+            }
+
+            msg += `━━━━━━━━━━━━━━━━━━━━\n`;
+            if (hasImage) {
+                msg += `📸 _Photo will be sent as attachment._\n`;
+            }
+            msg += `_Sent via AkbarBhaiRishteWale.com_`;
+
+            const encoded = encodeURIComponent(msg);
+            const waUrl = `https://wa.me/919960729092?text=${encoded}`;
+
+            showToast('✅ Opening WhatsApp...');
+
+            setTimeout(() => {
+                window.location.href = waUrl;
+            }, 800);
+
+            if (hasImage) {
+                setTimeout(() => {
+                    alert('📸 WhatsApp is open.\n\nIMPORTANT: Please also attach your photo by tapping the paperclip (📎) or "+" icon in WhatsApp before sending.');
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
